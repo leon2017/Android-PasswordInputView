@@ -9,7 +9,11 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 
@@ -35,7 +39,7 @@ public class PasswordInputView extends EditText {
     private Paint borderPaint = new Paint(ANTI_ALIAS_FLAG);
     private int textLength;
 
-    public PasswordInputView(Context context, AttributeSet attrs) {
+    public PasswordInputView(final Context context, AttributeSet attrs) {
         super(context, attrs);
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
@@ -60,6 +64,19 @@ public class PasswordInputView extends EditText {
         passwordPaint.setStrokeWidth(passwordWidth);
         passwordPaint.setStyle(Paint.Style.FILL);
         passwordPaint.setColor(passwordColor);
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask()
+                       {
+                           public void run()
+                           {
+                               InputMethodManager inputManager =
+                                       (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                               inputManager.showSoftInput(PasswordInputView.this, 0);
+                           }
+
+                       },
+                500);
     }
 
     @Override

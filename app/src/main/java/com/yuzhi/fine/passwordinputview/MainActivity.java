@@ -2,6 +2,7 @@ package com.yuzhi.fine.passwordinputview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, passwordInputView.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, TextUtils.isEmpty(passwordInputView.getText())?"密码不能为空":passwordInputView.getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }

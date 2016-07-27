@@ -15,15 +15,15 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="25dp"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:inputType="number"
         android:maxLength="6"
-        app:pivBorderColor="#cccccc"
-        app:pivBorderRadius="10dp"
-        app:pivBorderWidth="10dp"
+        app:pivBorderColor="#0A0E67"
+        app:pivBorderRadius="2dp"
+        app:pivBorderWidth="2dp"
         app:pivPasswordColor="#cccccc"
         app:pivPasswordLength="6"
-        app:pivPasswordWidth="10dp" />
+        app:pivPasswordWidth="6dp" />
 
     <Button
         android:id="@+id/button"
